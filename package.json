@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --env-file=.env server.js",
-    "seed": "node --env-file=.env seed.js"
+    "seed": "node --env-file=.env seed.js",
+    "reset": "node --env-file=.env reset.js",
   },
   "author": "Tobi",
   "license": "ISC",
