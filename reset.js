@@ -1,5 +1,4 @@
 // sets every lesson back to 5 spaces and deletes all orders
-// run it with: npm run reset
 
 const { MongoClient } = require('mongodb')
 

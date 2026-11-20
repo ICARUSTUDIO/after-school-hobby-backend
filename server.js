@@ -13,7 +13,7 @@ let db
 app.use(cors())
 app.use(express.json())
 
-// logger middleware - prints every request in the console
+// logger middleware, prints every request in the console
 app.use(function (req, res, next) {
     let time = new Date().toLocaleString()
     console.log(time + ' ' + req.method + ' ' + req.url)
@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
     next()
 })
 
-// static file middleware - sends back lesson images from the images folder
+// static file middleware,sends back lesson images from the images folder
 app.use('/images', express.static(path.join(__dirname, 'images')))
 
 // if the image wasn't found above, send an error message
@@ -49,7 +49,7 @@ app.get('/lessons/:id', async function (req, res) {
     res.json(lesson)
 })
 
-// search in topic, location, price and space, e.g. /search?q=port
+// search in topic, location, price and space
 app.get('/search', async function (req, res) {
     let text = ''
     if (req.query.q) {
@@ -76,7 +76,7 @@ app.get('/search', async function (req, res) {
     res.json(results)
 })
 
-// update a lesson, e.g. send { "space": 3 } to change the spaces
+// update a lesson
 app.put('/lessons/:id', async function (req, res) {
     await db.collection('lesson').updateOne(
         { _id: new ObjectId(req.params.id) },
